@@ -1,0 +1,60 @@
+/* Reset stylów */
+body, h1, a, p {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+/* Nagłówek */
+.main-header {
+    background-color: #007BFF; /* Niebieskie tło */
+    padding: 10px;
+    position: fixed; /* Przyklejony do góry ekranu */
+    top: 0;
+    width: 100%;
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.main-header .logo a {
+    font-size: 1.5rem;
+    color: white; /* Białe logo */
+    font-weight: bold;
+}
+
+.main-header .main-nav a {
+    margin-left: 20px;
+    color: white; /* Białe linki */
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+/* Stopka */
+.main-footer {
+    background-color: #007BFF; /* Niebieskie tło */
+    padding: 10px;
+    position: fixed; /* Przyklejony do dołu ekranu */
+    bottom: 0;
+    width: 100%;
+    z-index: 1000; /* Zapewnia widoczność nad innymi elementami */
+    color: white; /* Biały tekst */
+    text-align: center; /* Wyśrodkowanie tekstu */
+}
+
+.main-footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.main-footer p {
+    margin: 0;
+    font-size: 0.9rem; /* Mniejszy tekst */
+}

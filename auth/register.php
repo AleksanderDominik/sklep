@@ -1,29 +1,25 @@
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <title>Rejestracja</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <?php include('templates/header.php'); ?>
-    <?php include('templates/navigation.php'); ?>
-    
-    <h2>Rejestracja użytkownika</h2>
-    <form id="registerForm" action="modules/user_auth.php?action=register" method="post">
-        <label for="login">Login:</label>
-        <input type="text" id="login" name="login" required><br>
+<?php
+$pageTitle = "Rejestracja"; // Ustawienie tytułu strony
+include('../templates/header.php'); 
+include('../templates/navigation.php'); 
+?>
 
-        <label for="password">Hasło:</label>
-        <input type="password" id="password" name="password" required><br>
+<h2 style="margin-top: 80px;">Rejestracja</h2> <!-- Duży napis Rejestracja -->
 
-        <label for="confirm_password">Potwierdź hasło:</label>
-        <input type="password" id="confirm_password" name="confirm_password" required><br>
+<form id="registerForm" action="../modules/user_auth.php?action=register" method="post">
+    <label for="login">Login:</label>
+    <input type="text" id="login" name="login" required><br>
 
-        <button type="submit">Zarejestruj się</button>
-    </form>
+    <label for="password">Hasło:</label>
+    <input type="password" id="password" name="password" required><br>
 
-    <script src="js/validation.js"></script>
-    <?php include('templates/footer.php'); ?>
+    <label for="confirm_password">Potwierdź hasło:</label>
+    <input type="password" id="confirm_password" name="confirm_password" required><br>
+
+    <button type="submit">Zarejestruj się</button>
+</form>
+
+<script src="../js/validation.js"></script>
+<?php include('../templates/footer.php'); ?>
 </body>
 </html>
