@@ -1,7 +1,5 @@
 <?php 
-$pageTitle = "Logowanie"; // Ustawienie tytułu strony
-// include('../templates/header.php'); 
-//  include('../templates/navigation.php'); 
+    $pageTitle = "Logowanie"; // Ustawienie tytułu strony 
 ?>
 
 <h2 style="margin-top: 80px;">Logowanie</h2>
@@ -15,5 +13,3 @@ $pageTitle = "Logowanie"; // Ustawienie tytułu strony
 
     <button type="submit">Zaloguj się</button>
 </form>
-
- <?php // include('../templates/footer.php'); ?>

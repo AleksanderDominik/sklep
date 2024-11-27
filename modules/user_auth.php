@@ -39,10 +39,11 @@ if (isset($_GET['action']) && $_GET['action'] === 'register') {
         }
 
         // Walidacja hasła (minimum 8 znaków, 1 wielka litera, 1 cyfra)
-        if (!preg_match('/^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/', $password)) {
-            header("Location: ../index.php?section=register&error=Hasło musi mieć co najmniej 8 znaków, zawierać 1 wielką literę i 1 cyfrę.");
+        if (!preg_match('/^(?=.*[A-Z])(?=.*\d)(?=.*[\W_])[A-Za-z\d\W_]{8,}$/', $password)) {
+            header("Location: ../index.php?section=register&error=Hasło musi mieć co najmniej 8 znaków, zawierać 1 wielką literę, 1 cyfrę i 1 znak specjalny.");
             exit;
         }
+        
 
         // Sprawdzenie unikalności loginu
         $stmt = $pdo->prepare("SELECT id_uzytkownik FROM uzytkownicy WHERE login = :login");

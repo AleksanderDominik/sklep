@@ -1,7 +1,5 @@
 <?php
-$pageTitle = "Rejestracja"; // Ustawienie tytułu strony
-include('../templates/header.php'); 
-include('../templates/navigation.php'); 
+    $pageTitle = "Rejestracja"; // Ustawienie tytułu strony 
 ?>
 
 <h2 style="margin-top: 80px;">Rejestracja</h2> <!-- Duży napis Rejestracja -->

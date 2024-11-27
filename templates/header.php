@@ -12,10 +12,11 @@
             <h1 class="logo"><a href="index.php">Sklep Internetowy</a></h1>
             <nav class="main-nav">
                 <a href="index.php">Strona Główna</a>
-                <a href="index.php?page=login">Logowanie</a>
-                <?php if (isset($pageTitle) && $pageTitle === "Logowanie"): ?>
+                <?php if (!isset($_SESSION['user_id'])): ?>
+                    <a href="index.php?page=login">Logowanie</a>
                     <a href="auth/register.php">Rejestracja</a>
                 <?php else: ?>
+                    <a href="auth/update.php">Moje konto</a> <!-- Link do edycji danych -->
                     <a href="auth/logout.php">Wyloguj</a>
                 <?php endif; ?>
             </nav>

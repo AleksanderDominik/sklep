@@ -2,14 +2,6 @@
 session_start();
 include('db/config.php'); // Połączenie z bazą danych
 
-// Sprawdzanie połączenia z bazą
-try {
-    $pdo->query("SELECT 1");
-    $dbStatus = "Połączono z bazą danych.";
-} catch (Exception $e) {
-    $dbStatus = "Błąd połączenia z bazą danych: " . $e->getMessage();
-}
-
 // Sprawdzenie, czy użytkownik jest zalogowany
 $isLoggedIn = isset($_SESSION['user_id']);
 $pageTitle = "Strona Główna";
@@ -52,6 +44,7 @@ $successMessage = isset($_GET['success']) ? htmlspecialchars($_GET['success']) :
                     <a href="index.php?section=login" onclick="switchSection('login'); return false;">Logowanie</a>
                     <a href="index.php?section=register" onclick="switchSection('register'); return false;">Rejestracja</a>
                 <?php else: ?>
+                    <a href="index.php?section=account" onclick="switchSection('account'); return false;">Moje Konto</a>
                     <a href="auth/logout.php">Wyloguj</a>
                 <?php endif; ?>
             </nav>
@@ -59,9 +52,6 @@ $successMessage = isset($_GET['success']) ? htmlspecialchars($_GET['success']) :
     </header>
 
     <main>
-        <!-- Informacja o połączeniu z bazą danych -->
-        <p><?php echo $dbStatus; ?></p>
-
         <!-- Powitanie -->
         <?php if ($isLoggedIn): ?>
             <h2>Witaj, <?php echo htmlspecialchars($_SESSION['login']); ?>!</h2>
@@ -95,6 +85,22 @@ $successMessage = isset($_GET['success']) ? htmlspecialchars($_GET['success']) :
                 <label for="confirm_password">Potwierdź hasło:</label>
                 <input type="password" id="confirm_password" name="confirm_password" required><br>
                 <button type="submit">Zarejestruj się</button>
+            </form>
+        </div>
+
+        <div id="account" class="section" style="<?php echo $section === 'account' ? '' : 'display: none;'; ?>">
+            <h2>Moje Konto</h2>
+            <form action="auth/update_user.php" method="post">
+                <label for="login">Login:</label>
+                <input type="text" id="login" name="login" value="<?php echo htmlspecialchars($_SESSION['login']); ?>" required><br>
+
+                <label for="password">Nowe hasło (opcjonalnie):</label>
+                <input type="password" id="password" name="password"><br>
+
+                <label for="confirm_password">Potwierdź nowe hasło:</label>
+                <input type="password" id="confirm_password" name="confirm_password"><br>
+
+                <button type="submit">Zapisz zmiany</button>
             </form>
         </div>
     </main>
